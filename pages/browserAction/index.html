@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Login - AAF</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="../../src/img/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" href="../../src/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../src/fonts/iconic/css/material-design-iconic-font.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/tools.css">
+
+
+    <style>
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            appearance: none;
+            margin: 0;
+        }
+    </style>
+    <!--===============================================================================================-->
+</head>
+
+<body class="no-select">
+    <div id="app">
+        <div v-if="login.status === false">
+            <login-component></login-component>
+        </div>
+        <div v-else>
+            <header-component></header-component>
+        </div>
+    </div>
+    <script src="../../framework/jquery-3.4.1.min.js"></script>
+    <script src="../../framework/vuejs/vue.min.js"></script>
+
+    <script type="text/x-template" id="auto-refresh-component-template">
+        <div style="width: 400px;height: 150px;">
+            <section style="padding-left: 1rem; padding-right: 1rem; margin: 0;">
+                <h3 style="font-weight: normal; color: #424242; margin-bottom: 12px;">
+                    Auto Refresh
+                    <label for="enable-auto-refresh" class="enable-auto-refresh-label" :key="forceRender.toggleIcon" style="font-size: 20pt; float: right; cursor: pointer; color: #37a6d9;">
+                        <i :class="configuration.enable ? 'fa fa-toggle-on auto-refresh-icon' : 'fa fa-toggle-off auto-refresh-icon'" aria-hidden="true"></i>
+                        <input type="checkbox" v-model="configuration.enable" style="display: none;" id="enable-auto-refresh" @change="saveConfiguration">
+                    </label>
+                </h3>
+                <div class="form-inline" style="color: #666; margin-bottom: 16px;">
+                    <label class="input-inline" style="cursor: pointer; ">
+                        <span>
+                            <i class="fa fa-clock-o" style="color: #37a6d9;" aria-hidden="true"></i> Tiempo
+                        </span>
+                        <select v-model="configuration.time" @change="saveConfiguration" :disabled="configuration.extreme">
+                            <option value="0.01">0.01 seg</option>
+                            <option value="0.1">0.1 seg</option>
+                            <option value="0.5">0.5 seg</option>
+                            <option value="1">1 seg</option>
+                            <option value="3">3 seg</option>
+                            <option value="5">5 seg</option>
+                            <option value="10">10 seg</option>
+                        </select>
+                    </label>
+                    <label class="input-inline" style="cursor: pointer; ">
+                        <span>
+                            <i class="fa fa-window-close" style="color: #37a6d9;" aria-hidden="true"></i> Autoclose
+                        </span>
+                        <div class="custom-input" style="margin-top: 3px;">
+                            <input type="checkbox" v-model="configuration.autoclose"  @change="saveConfiguration">
+                            <span></span>
+                        </div>
+                    </label>
+                    <label class="input-inline" style="cursor: pointer; ">
+                        <span>
+                            <i class="fa fa-volume-up" style="color: #37a6d9;" aria-hidden="true"></i> Sonido
+                        </span>
+                        <div class="custom-input" style="margin-top: 3px;">
+                            <input type="checkbox" v-model="configuration.sound" @change="saveConfiguration">
+                            <span></span>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- AR - Extremo -->
+                <div class="form-inline" style="color: #666;">
+                    <label class="input-inline" style="cursor: pointer; width: 92px;">
+                        <span>
+                            <i class="fa fa-rocket" style="color: #37a6d9;" aria-hidden="true"></i> Extremo
+                        </span>
+                        <div class="custom-input" style="margin-top: 3px;">
+                            <input type="checkbox" v-model="configuration.extreme" @change="saveConfiguration">
+                            <span></span>
+                        </div>
+                    </label>
+                    
+                    <label class="input-inline" style="cursor: pointer; ">
+                        <span>
+                            <i class="fa fa-level-up" style="color: #37a6d9;" aria-hidden="true"></i> Multiplicador
+                        </span>
+                        <select v-model="configuration.multiplicator"  @change="saveConfiguration" :disabled="!configuration.extreme">
+                            <option value="1">x1</option>
+                            <option value="2">x2</option>
+                            <option value="3">x3</option>
+                            <option value="4">x4</option>
+                            <option value="5">x5</option>
+                            <option value="6">x6</option>
+                            <option value="7">x7</option>
+                            <option value="8">x8</option>
+                            <option value="9">x9</option>
+                            <option value="10">x10</option>
+                        </select>
+                    </label>
+                    
+                    <label class="input-inline" style="cursor: pointer; width: 65px;">
+                        
+                    </label>
+                </div>
+                <div style="padding-top: 20px; color: gray; padding-bottom: 10px;">
+                    <small>
+                        Nota: El tiempo de espera será de <b>0s</b> si habilita <b>extremo</b>.
+                    </small>
+                </div>
+            </section>
+        
+        </div>
+
+
+
+    </script>
+
+    <script type="text/x-template" id="header-component-template">
+        <div>
+            <div class="header" style="padding: 1rem; border-bottom: 1px solid #e8e8e8;">
+                <div class="logo" style="align-items: center; font-weight: bold; color: #424242; font-size: 17px;">
+                    <span style="font-weight: 500;
+                    line-height: 1.5; font-size: 20px;">
+                        <img src="../../src/img/icon.png" style="width: 30px; margin-right: 10px; float: left;  margin-top: 2px;">
+                    </span>
+                    Advanced Autofill
+                    <small style="color: gray; font-size: 8pt;"> {{ CURRENT_VERSION }}</small>
+                </div>
+                <div>
+                    <button class="button-ar-config" @click="togglePages">
+                        <span  v-if="showPages.autoRefresh === false">
+                            <i class="fa fa-refresh"></i>
+                        </span>
+                        <span v-else>
+                            <i class="fa fa-times"></i>
+                        </span>
+                    </button>
+                    <button style="cursor: pointer;font-size: 15px;background-color: #37a6d9;border: none;width: 39px;height: 25px;border-radius: 20px;color: white;"
+                    @click="this.closeSession">
+                        <i class="fa fa-power-off"></i>
+                    </button>
+                </div>
+            </div>
+            <div v-if="showPages.action === true">
+                <action-component></action-component>
+            </div>
+            <div v-else>
+                <auto-refresh-component></auto-refresh-component>
+            </div>
+
+
+        </div>
+        
+
+    </script>
+
+    <script type="text/x-template" id="action-component-template">
+
+        <div style="width: 400px; height: 500px;">
+            <section style="padding: 1rem; padding-bottom: 0; text-align: center;">
+                <div class="btn-group" style="margin: auto; width: 268px;">
+                    <button style="border-top-left-radius: 20px; border-bottom-left-radius: 20px; background-color: #37a6d9; color: white; font-weight: bold; font-size: 11pt;"
+                    @click="openOptionsPage"
+                    >
+                        <i class="fa fa-list"></i>
+                        Dashboard
+                    </button>
+                    <button :style="(inputs.autofillGroup.status == 1 ? 'background-color: rgb(55, 166, 217); color: white;' :  'background-color: white; color: rgb(139 139 139);') + 'font-weight: bold; font-size: 11pt; border-top-right-radius: 20px; border-bottom-right-radius: 20px; width: 120px;'"
+                    @click="controllers().autofillGroup.setStatus($event, inputs.autofillGroup, backgroundPage)"
+                    >
+                        <span v-if="inputs.autofillGroup.loading === true">
+                            <i class="fa fa-spinner fa-spin" style="color: #37a6d9;"></i>
+                        </span>
+
+                        <span v-else-if="inputs.autofillGroup.error === true">
+                            <i class="fa fa-exclamation-circle" style="color: red;"></i>
+                        </span>
+
+                        <span v-else-if="[0, 1].includes(inputs.autofillGroup.status)">
+                            <i class="fa fa-bolt"></i>
+                            Autofill
+                        </span>
+
+                        
+                        
+                    </button>
+                </div>
+            </section>
+            <section style="padding-left: 1rem; padding-right: 1rem; margin: 0;">
+                <h3 style="font-weight: normal; color: #424242; margin-bottom: 12px;">Aftertime</h3>
+                <div class="form-inline" style="color: #666;">
+                    <label class="input-inline" style="cursor: pointer; ">
+                        Manual
+                        <div class="custom-input" style="margin-top: 3px;">
+                            <input type="radio" name="aftertime-option" 
+                            @change="controllers().aftertimeGroup.setStatus(2, null, inputs.aftertimeGroup, backgroundPage)"
+                            :checked="inputs.aftertimeGroup.mode == 2"
+                            >
+                            <span></span>
+                        </div>
+                    </label>
+                    <label class="input-inline" style="cursor: pointer;" title="Nota: Cuando no esté disponible el tiempo en el documento, se seleccionará el tiempo manual.">
+                        Automático
+                        <div class="custom-input" style="margin-top: 3px;">
+                            <input type="radio" name="aftertime-option" 
+                            @change="controllers().aftertimeGroup.setStatus(1, null, inputs.aftertimeGroup, backgroundPage)"
+                            :checked="inputs.aftertimeGroup.mode == 1"
+                            >
+                            <span></span>
+                        </div>
+                      
+                    </label>
+                    <label class="input-inline" style="cursor: pointer;">
+                        Desactivado
+                        <div class="custom-input" style="margin-top: 3px;">
+                            <input type="radio" name="aftertime-option" 
+                            @change="controllers().aftertimeGroup.setStatus(0, null, inputs.aftertimeGroup, backgroundPage)"
+                            :checked="inputs.aftertimeGroup.mode == 0"
+                            >
+                            <span></span>
+                        </div>
+                      
+                    </label>
+                </div>
+                <div class="">
+                    <input type="number" style="margin-left: 21px; margin-top: 10px; text-align: center; color: rgb(102, 102, 102);" 
+                    @keyup="controllers().aftertimeGroup.setStatus(2, $event.target.value, inputs.aftertimeGroup, backgroundPage)"
+                    :disabled="inputs.aftertimeGroup.mode != 2"
+                    :value="inputs.aftertimeGroup.time"
+                    >
+                </div>
+            </section>
+            <section style="padding-left: 1rem; padding-right: 1rem; margin: 0;">
+                <h3 style="font-weight: normal; color: #424242; margin-bottom: 12px;">Visor de enlaces</h3>
+                <div class="form-inline" style="color: #666;">
+                    <label for="button"class="input-inline" style="cursor: pointer;">
+                        Botones
+                        <div class="custom-input" style="margin-top: 3px;">
+                            <input type="checkbox" id="button" :checked="inputs.buttonCheckbox.checked" @change="controllers().button.setStatus($event, backgroundPage)">
+                            <span></span>
+                        </div>
+                    </label>
+                    <label for="box"class="input-inline" style="cursor: pointer;">
+                        Cajas
+                        <div class="custom-input" style="margin-top: 3px;">
+                            <input type="checkbox" id="box" :checked="inputs.boxCheckbox.checked" @change="controllers().box.setStatus($event, backgroundPage)">
+                            <span></span>
+                        </div>
+                    </label>
+                    <label for="iframe"class="input-inline" style="cursor: pointer;">
+                        Iframe
+                        <div class="custom-input" style="margin-top: 3px;">
+                            <input type="checkbox" id="iframe" :checked="inputs.iframeCheckbox.checked" @change="controllers().iframe.setStatus($event, backgroundPage)">
+                            <span></span>
+                        </div>
+                    </label>
+                    <label for="img"class="input-inline" style="cursor: pointer;">
+                        Imagenes
+                        <div class="custom-input" style="margin-top: 3px;">
+                            <input type="checkbox" id="img" :checked="inputs.imgCheckbox.checked" @change="controllers().img.setStatus($event, backgroundPage)">
+                            <span></span>
+                        </div>
+                    </label>
+                    
+                </div>
+                <div class="" style="color: #666; margin-top: 16px; text-align: center; overflow: hidden;">
+                    <label for="tiktok"class="" style="cursor: pointer; float: left; margin-left: 23px;">
+                        Tik-Tok
+                        <br>
+                        <div class="custom-input" style="margin-top: 3px;">
+                            <input type="checkbox" id="tiktok" :checked="inputs.tiktokCheckbox.checked" @change="controllers().tiktok.setStatus($event, backgroundPage)">
+                            <span></span>
+                        </div>
+                    </label>
+                    <label for="token"class="" style="cursor: pointer; float: left; margin-left: 41px;">
+                        Token
+                        <br>
+                        <div class="custom-input" style="margin-top: 3px;">
+                            <input type="checkbox" id="token" :checked="inputs.tokenCheckbox.checked" @change="controllers().token.setStatus($event, backgroundPage)">
+                            <span></span>
+                        </div>
+                    </label>
+                </div>
+            </section>
+            <section style="padding-left: 1rem; padding-right: 1rem; margin: 0;">
+                <h3 style="font-weight: normal; color: #424242; margin-bottom: 12px;">Utilidades</h3>
+                <div style="color: #666; text-align: center;">
+                    <label for="click"class="" style="cursor: pointer; float: left; margin-left: 22px; text-align: center;">
+                        Click-D
+                        <br>
+                        <div class="custom-input" style="margin-top: 3px;">
+                            <input type="checkbox" id="click" :checked="inputs.clickCheckbox.checked" @change="controllers().click.setStatus($event, backgroundPage)">
+                            <span></span>
+                        </div>
+                    </label>
+                    <label for="unlock"class="" style="cursor: pointer; float: left; margin-left: 37px; text-align: center;">
+                        Unlock
+                        <br>
+                        <div class="custom-input" style="margin-top: 3px;">
+                            <input type="checkbox" id="unlock" :checked="inputs.unlockCheckbox.checked" @change="controllers().unlock.setStatus($event, backgroundPage)">
+                            <span></span>
+                        </div>
+                    </label>
+                    <label for="timer"class="" style="cursor: pointer; float: left; margin-left: 46px; text-align: center;">
+                        Timer
+                        <br>
+                        <div class="custom-input" style="margin-top: 3px;">
+                            <input type="checkbox" id="timer" :checked="inputs.timerCheckbox.checked" @change="controllers().timer.setStatus($event, backgroundPage)">
+                            <span></span>
+                        </div>
+                    </label>
+                </div>
+            </section>
+        </div>
+    </script>
+
+    <script type="text/x-template" id="login-component-template">
+        <div v-if="reconnectionStatus === false" style="width: 250px; height: 280px;">
+            <div style="text-align: center; padding: 15px;">
+                <img src="../../src/img/icon.png" style="width: 50px;">
+                <br>
+                <span>
+                    Advanced Autofill
+                </span>
+            </div>
+            <div style="text-align: center;" class="text-center">
+                <input type="text" id="username" placeholder="Usuario" class="form-basic" style="width: 80%; margin-bottom: 10px;" autocomplete="off" autofocus >
+                
+                <input type="password" id="password" placeholder="Contraseña" class="form-basic" style="width: 80%; margin-bottom: 10px;" autocomplete="off" >
+                
+                <button @click="logIn(true, $event)" id="button-login" type="button" class="button-login" style="margin-bottom: 10px; padding: 11px;">Iniciar sesión</button>
+
+                <span style="font-size: 10pt; margin-bottom: 10px;">
+                    <a style="color: blue; text-decoration: none;" href="https://discord.com/channels/@me/594365684117405713" target="_blank">
+                        ¿Olvidaste tu contraseña?
+                    </a>
+                </span>
+                <br>
+                <small style="overflow: auto; color: red; padding: 5px;" id="information">
+                    
+                </small>
+            </div>
+        </div>
+        <div v-else style="width: 150px; height: 68px; text-align: center; font-size: 13pt;">
+            <div style="padding: 10px;">
+                <i class="fa fa-spinner fa-spin" style="color: #37a6d9;"></i>
+                <br>
+                <small>
+                    Reconectando...
+                </small>
+            </div>
+            
+        </div>
+
+
+    </script>
+
+    <script src="js/6.js"></script>
+
+</body>
+
+</html>

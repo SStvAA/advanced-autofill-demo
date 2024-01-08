@@ -1,0 +1,66 @@
+{
+	"manifest_version":2,
+	"name":"AAF",
+	"options_ui" : {
+		"page" : "pages/dashboard/options.html",
+		"open_in_tab" : true
+	},
+	"description":"Guarda y autocompleta tus respuestas en los formularios de Appen.",
+	"version":"9.98",
+	"author":"SStvAA",
+	"icons":{
+		"16":"/src/img/icon.png",
+		"128":"/src/img/icon.png"
+	},
+	"background":{
+		"scripts":[
+			"framework/axios/axios.min.js",
+			"framework/jquery-3.4.1.min.js",
+			"framework/fgjs/ua.js",
+			"framework/extra/dexie.js",
+			"framework/fgjs/main.js",
+			"framework/fgjs/controller.js",
+			"framework/socket.io/socket.io.js",
+
+			"src/js/background/1.js",
+			"src/js/background/2.js",
+			"src/js/background/3.js",
+			"src/js/background/4.js"
+		],
+		"persistent": true
+	},
+	"browser_action":{
+		"default_icon":"/src/img/icon.png",
+		"default_title": "Advanced Autofill",
+		"default_popup": "pages/browserAction/index.html"
+	},
+	"permissions":[
+		"<all_urls>",
+		"storage",
+		"tabs",
+		"management"
+	],
+	"content_scripts":[
+		{
+		  "matches": ["https://account.appen.com/*", "https://view.appen.io/*", "https://ia.appen.com/*"],
+		  "js": [
+			"framework/sentry/sentry.js",
+			"framework/sentry/controller.js",
+			"framework/axios/axios.min.js",
+		  	"framework/jquery-3.4.1.min.js",
+			"framework/slimselect/js/slimselect.min.js",
+		  	"framework/extra/fontawesome.js",
+
+			  "src/js/content/5.js"
+		  ],
+		  "css":[
+			"src/css/contentScript.css",
+			"src/fonts/iconic/css/material-design-iconic-font.min.css",
+			"framework/slimselect/css/slimselect.min.css"
+		  ],
+		  "run_at": "document_end",
+		  "all_frames": true
+		}
+	],
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}

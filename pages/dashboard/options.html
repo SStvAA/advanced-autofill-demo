@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--fontawesome-->
+	<link type="text/css" href="../../framework/fontawesome/css/all.min.css" rel="stylesheet">
+	<!--bootstrap-->
+	<link rel="stylesheet" type="text/css" href="../../framework/bootstrap/css/bootstrap.min.css">
+	<!-- fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+
+	<!-- style -->
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="css/modal.css">
+
+	<title class="notranslate">Dashboard - AAF</title>
+
+
+</head>
+
+<body>
+	<main id="app">
+		<nav class="navbar navbar-expand-lg navbar-dark">
+			<section class="container">
+				<a class="navbar-brand" data-toggle="modal" data-target="#modalConfig">
+					<!--svg-->
+					<svg fill="#2f3838" viewBox="0 0 215 50" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="m215 38.273h-6.7359v-15.958c0-2.9399-1.741-5.3193-5.0927-5.3193-3.8765 0-6.4572 3.9126-6.4572 8.4002v12.877h-6.7396v-26.495h6.7396v3.7282c1.9763-3.0448 5.1325-4.4767 8.98-4.4767 5.0022 0 9.3058 3.6342 9.3058 9.1885zm-199.25-27.746a4.814 4.8094 0 0 0 1.2379 4.9505c1.1727 1.1716 5.5886 5.605 8.0571 5.605 2.4685 0 6.8771-4.4334 8.0535-5.605a4.814 4.8094 0 0 0 1.2415-4.9505c-0.87593-2.6181-8.0571-9.2862-9.2949-10.527-1.2415 1.2222-8.4226 7.8904-9.295 10.527zm23.791 5.1964a4.8212 4.8167 0 0 0-4.9551 1.2367c-1.1727 1.1716-5.6103 5.5833-5.6103 8.0495 0 2.4662 4.4375 6.8706 5.6103 8.0495a4.8212 4.8167 0 0 0 4.9551 1.2367c2.6205-0.87148 9.2986-8.0495 10.536-9.2862-1.2379-1.2548-7.9159-8.4328-10.536-9.3043zm-29.007 18.554a4.8176 4.813 0 0 0 4.9551-1.2367c1.1619-1.1789 5.6139-5.5833 5.6139-8.0495 0-2.4662-4.452-6.8706-5.6139-8.0495a4.8176 4.813 0 0 0-4.9551-1.2367c-2.6169 0.87148-9.2949 8.0495-10.533 9.2862 1.2379 1.2367 7.9159 8.4147 10.533 9.2862zm23.806 5.1964a4.814 4.8094 0 0 0-1.2415-4.9505c-1.1727-1.1716-5.5886-5.605-8.0535-5.605s-6.8771 4.4334-8.0571 5.605a4.814 4.8094 0 0 0-1.2379 4.9505c0.87231 2.6181 8.0535 9.2862 9.295 10.527 1.2379-1.2403 8.419-7.9084 9.2949-10.527zm151.3-15.585c0-7.2322-5.5198-13.177-13.392-13.177-8.2272 0-13.906 5.7279-13.906 14.153s6.4862 14.157 13.787 14.157c6.7142 0 10.555-2.8929 12.933-7.7421l-5.5741-2.8097c-1.3501 2.9833-3.3408 4.7009-7.0726 4.7009-4.0539 0-6.8518-2.5928-7.2825-6.697h20.512zm-20.269-2.3686c0.93384-3.4787 3.5001-5.6231 6.8156-5.6231 3.3155 0 5.8926 2.1444 6.8192 5.6231zm-83.068-9.7418v2.6795c-1.56-2.0467-4.4701-3.4462-7.8689-3.4462-7.3766 0-13.193 5.1964-13.193 14.016 0 8.8197 5.8383 13.994 13.302 13.994 3.3987 0 6.4174-1.4031 7.7603-3.5546v2.8061h6.7432v-26.495zm-6.7613 21.371c-4.2023 0-7.1992-3.2111-7.1992-8.1218s2.997-8.1435 7.1992-8.1435c4.2023 0 7.192 3.2328 7.192 8.1435s-2.9934 8.1218-7.192 8.1218zm19.459-21.371v37.394h6.7396v-13.271c1.5021 1.8948 4.3652 3.1207 7.7639 3.1207 7.4598 0 13.302-5.1855 13.302-13.994s-5.8166-14.016-13.197-14.016c-3.3951 0-6.403 1.5115-7.8689 3.5583v-2.7916zm6.3088 13.249c0-4.9107 2.997-8.1435 7.1956-8.1435s7.1992 3.2328 7.1992 8.1435-2.997 8.1218-7.1992 8.1218-7.1956-3.2111-7.1956-8.1218zm25.626-13.249v37.394h6.7396v-13.271c1.4985 1.8948 4.3652 3.1207 7.7603 3.1207 7.4635 0 13.302-5.1855 13.302-13.994s-5.8166-14.016-13.208-14.016c-3.3987 0-6.4066 1.5115-7.8689 3.5583v-2.7916zm6.3088 13.249c0-4.9107 2.9934-8.1435 7.192-8.1435s7.1992 3.2328 7.1992 8.1435-2.997 8.1218-7.1992 8.1218-7.192-3.2111-7.192-8.1218z">
+						</path>
+					</svg>
+					<small class="title-aaf">AAF 9</small></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+					aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarText">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+						</li>
+						<li class="nav-item">
+						</li>
+						<li class="nav-item">
+							<search-controller></search-controller>
+						</li>
+					</ul>
+
+					<navbar-tools-controller></navbar-tools-controller>
+					
+				</div>
+			</section>
+		</nav>
+		<div class="container" style="background-color: white; border-radius: 10px;">
+
+			<div class="server-controller">
+				<server-controller></server-controller>
+			</div>
+			<hr>
+			<div class="local-controller">
+				<local-controller></local-controller>
+			</div>
+			<div>
+				<auto-open-task-modal></auto-open-task-modal>
+				<edit-modal>
+			</div>
+			
+
+		</div>
+	</main>
+
+
+	<!-- ============================================ COMPONENTS ============================================ -->
+	<script type="text/x-template" id="search-controller-template">
+		<span>
+			<i class="fas fa-search"></i>
+			<input v-model="searchBox.value" spellCheck="false" @keyup="keyUp" class="input-text" type="text" placeholder=" Buscar" id="search_box" autocomplete="off">
+		</span>
+
+
+	</script>
+
+	<script type="text/x-template" id="navbar-tools-controller-template">
+		<div class="nav-tools">
+			<span @click="app.$children[app.$children.map(child => child.$vnode.componentOptions.tag).indexOf('auto-open-task-modal')].showModal()" title="Auto Open Tasks">
+				<i class="fas fa-external-link-alt"></i>
+			</span>
+			<span class="dropdown show" title="Operaciones con documentos">
+				<i class="fas fa-book dropdown-toggle" role="button" id="dropdownMenuDocument" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuDocument">
+					<a class="dropdown-item" @click="this.deleteAllLocalHeaders">Eliminar documentos locales</a>
+				</div>
+			</span>
+
+			<span class="dropdown show" title="Operaciones con el perfil de usuario">
+				<i class="fas fa-user dropdown-toggle" role="button" id="dropdownMenuUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuUser">
+					<a class="dropdown-item" @click="this.closeAllSessions" >Cerrar sesiones</a>
+				</div>
+			</span>
+		</div>
+	</script>
+
+	<script type="text/x-template" id="server-controller-template">
+		<div class="pt-1 pb-1">
+			<h5 class="text-center" style="font-size: 12pt; font-weight: bold; color: gray; height: 17.5px;">
+				<span class="cursor-default" style="float: left; margin-top: 2px; width: 166px !important; height: 17.5px;  overflow: hidden; text-align: left;">
+					<span v-if="status.operation.type === 'documentDownload'" style="display: inline-block">
+						<span v-if="status.operation.loading">
+							<span >
+								<i class="fas fa-arrow-alt-circle-down blue" ></i>
+							</span>
+							<small style="display: inline-block; max-width: 120px; font-size: 10pt; word-break: break-all">
+								{{
+									(status.operation.message).slice(0, 18)
+								}}
+							</small>
+						</span>
+						<span v-if="!status.operation.loading && status.operation.error">
+							<span >
+								<i class="fas fa-exclamation-circle error"></i>
+							</span>
+							<small style="display: inline-block; max-width: 120px; font-size: 10pt; word-break: break-all" :title="status.operation.error">
+								{{
+									(status.operation.error).slice(0, 18)
+								}}
+							</small>
+
+						</span>
+
+						
+					</span>
+					
+					
+				</span>
+				
+				<span style="margin-left: -138px">
+					Servidor
+				</span>
+
+				<button class='button-reload-component' :disabled="status.operation.loading" @click="loadListOfServerDocuments()" >
+					<!-- No se aplico directamente en el span la condicion -->
+					<!-- ya que la reactividad de vue recicla el objeto y no borra el SVG de fontawesome -->
+					<div v-if="status.list.loading || status.operation.loading">
+						<span >
+							<i class="fas fa-sync-alt fa-spin"></i> 
+						</span>
+					</div>
+					<div v-else>
+						<span>
+							<i class="fas fa-sync-alt "></i> 
+						</span>
+					</div>
+				</button>
+
+				
+
+			</h5>
+			<div class="table-wrap">
+				<table class="table table-bordered table-hover no-select" id="server-table">
+					<thead>
+						<tr>
+							<th style="width: 35%;">Documento</th>
+							<th style="width: 5%;">
+								<i class="fas fa-clock"></i>
+							</th>
+							<th>
+								Identificador
+							</th>
+							<th>
+								Creador
+							</th>
+							<th>
+								Actualizado
+							</th>
+							<th>
+								#
+							</th>
+							<th>
+								MB
+							</th>
+							<th>
+								Operaciones
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-if="status.list.error" loading-error="true">
+							<td colspan="8" class="text-center">
+								<i class="fas fa-exclamation-circle error"></i>
+								<br>
+								<span>({{status.list.error}})</span>
+							</td>
+						</tr>
+						<tr v-else-if="status.list.loading" loading="true">
+							<td colspan="8" class="text-center">
+								<i class="fa fa-spinner fa-spin"></i>
+							</td>
+						</tr>
+						<tr v-else-if="documents.listed.length == 0">
+							<td colspan="8" class="text-center">
+								No hay documentos disponibles.
+							</td>
+						</tr>
+						<tr v-else v-for="(document) in documents.listed">
+							<td class="td-name">
+								{{ document.name_formated }}
+							</td>
+							<td>
+								<span v-if="document.send_time">
+									{{ document.send_time }}s
+								</span>
+								<span v-else>
+									<i class="fa fa-question-circle"></i>
+								</span>
+							</td>
+							<!-- identificadores -->
+							<td class="p-1">
+								<span v-if="document.contain.box === true" title="Referencia por Box">
+									<i class="fas fa-box blue"></i>
+
+								</span>
+
+								<span v-if="document.references_type.image_link === true" title="Referencia por link de imagen"
+								:style="document.references_type.inner_text !== false || document.references_type.attribute_text !== false ? 'display: inline-block; margin-right: 10px;' : ''">
+									<i class="fas fa-images blue"></i>
+								</span>
+
+								<span v-if="document.references_type.inner_text !== false || document.references_type.attribute_text !== false" 
+								:title="document.references_type.inner_text !== false ? 'Referencia por texto:\n' + document.references_type.inner_text.selector.query : 'Referencia por texto:\n' + document.references_type.attribute_text.selector.query + ' (' + document.references_type.attribute_text.attribute + ') '">
+									<i class="fas fa-paragraph black"></i>
+								</span>
+							</td>
+							<td >
+								<span v-if="document.register_username == 'Administrator'" class="color-red">
+									{{
+										document.register_username
+									}}
+								</span>
+								<span v-else>
+									{{
+										document.register_username
+									}}
+								</span>
+							</td>
+							<td class="pt-1">
+								<small>{{ document.update_date_formated }}</small>
+								<br>
+								<span>
+									({{ document.update_username}})
+								</span>
+							</td>
+							<td>
+								{{ parseInt(document.number_tq)}}
+							</td>
+							<td>
+								{{ Math.round(parseFloat(document.size_in_mb) * 100) / 100}}
+							</td>
+							<td>
+								<button class="button-operation blue" title="Exportar restantes" @click="documentDownload(document.name, false)" :disabled="status.operation.loading">
+									<i class="fas fa-angle-down"></i>
+								</button>
+
+								<button class="button-operation blue" title="Descargar todas" @click="documentDownload(document.name, true)" :disabled="status.operation.loading">
+									<i class="fas fa-angle-double-down"></i>
+								</button>
+
+								<button class="button-operation button-operation-last text-danger" @click="documentRemove(document.name)" :disabled="status.operation.loading">
+									<i class="fas fa-trash"></i>
+								</button>
+							</td>
+						</tr>
+						<tr v-if="documents.showAll === false && status.list.loading === false && status.list.error === null">
+							<td colspan="8" class="text-center blue cursor-pointer" @click="showAllDocuments">
+								<i class="fas fa-eye blue"></i>
+								<span>Mostrar todo...</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+		</div>
+
+	</script>
+
+	<script type="text/x-template" id="local-controller-template">
+		<div class="pt-1 pb-1">
+			<h5 class="text-center" style="font-size: 12pt; font-weight: bold; color: gray; height: 17.5px;">
+				<span class="cursor-default" style="float: left; margin-top: 2px; width: 166px !important; height: 17.5px;  overflow: hidden; text-align: left;">
+					<span v-if="status.operation.type === 'documentExport'" style="display: inline-block">
+						<span v-if="status.operation.loading">
+							<span >
+								<i class="fas fa-arrow-alt-circle-up blue" ></i>
+							</span>
+							<small style="display: inline-block; max-width: 120px; font-size: 10pt; word-break: break-all">
+								{{
+									(status.operation.message).slice(0, 18)
+								}}
+							</small>
+						</span>
+						<span v-if="!status.operation.loading && status.operation.error">
+							<span >
+								<i class="fas fa-exclamation-circle error"></i>
+							</span>
+							<small style="display: inline-block; max-width: 120px; font-size: 10pt; word-break: break-all" :title="status.operation.error">
+								{{
+									(status.operation.error).slice(0, 18)
+								}}
+							</small>
+						</span>
+					</span>
+				</span>
+				<span style="margin-left: -139px">
+					Mi PC
+				</span>
+				<button class='button-reload-component' :disabled="status.operation.loading" @click="loadListOfLocalDocuments()" >
+					<!-- No se aplico directamente en el span la condicion -->
+					<!-- ya que la reactividad de vue recicla el objeto y no borra el SVG de fontawesome -->
+					<div v-if="status.list.loading || status.operation.loading">
+						<span >
+							<i class="fas fa-sync-alt fa-spin"></i> 
+						</span>
+					</div>
+					<div v-else>
+						<span>
+							<i class="fas fa-sync-alt "></i> 
+						</span>
+					</div>
+				</button>
+			</h5>
+			<div class="table-wrap">
+				<table class="table table-bordered table-hover no-select" id="local-table">
+					<thead>
+						<tr>
+							<th style="width: 35%;">Documento</th>
+							<th style="width: 5%;">
+								<i class="fas fa-clock"></i>
+							</th>
+							<th>
+								Identificador
+							</th>
+							<th>
+								ID's
+							</th>
+							<th>
+								Actualizado
+							</th>
+							<th>
+								#
+							</th>
+							<th>
+								Operaciones
+							</th>
+						</tr>
+					</thead>
+					<tbody :key="forceRender">
+						<tr v-if="status.list.error" loading-error="true">
+							<td colspan="8" class="text-center">
+								<i class="fas fa-exclamation-circle error"></i>
+								<br>
+								<span>({{status.list.error}})</span>
+							</td>
+						</tr>
+						<tr v-else-if="status.list.loading" loading="true">
+							<td colspan="7" class="text-center">
+								<i class="fa fa-spinner fa-spin"></i>
+							</td>
+						</tr>
+						<tr v-else-if="localDocuments.length == 0">
+							<td colspan="8" class="text-center">
+								No hay documentos disponibles.
+							</td>
+						</tr>
+						<tr v-else v-for="(document) in localDocuments" :class="document.active === true ? 'active-header' : ''">
+							<!-- nombre -->
+							<td class="td-name">
+								{{ document.name_formated }}
+							</td>
+							<!-- tiempo de envio -->
+							<td>
+								<span v-if="document.send_time">
+									{{ document.send_time }}s
+								</span>
+								<span v-else>
+									<i class="fa fa-question-circle"></i>
+								</span>
+							</td>
+							<!-- identificadores -->
+							<td class="p-1">
+								<span v-if="document.contain.box === true" title="Referencia por Box">
+									<i class="fas fa-box blue"></i>
+
+								</span>
+
+								<span v-if="document.references_type.image_link === true" title="Referencia por link de imagen"
+								:style="document.references_type.inner_text !== false || document.references_type.attribute_text !== false ? 'display: inline-block; margin-right: 10px;' : ''">
+									<i class="fas fa-images blue"></i>
+								</span>
+
+								<span v-if="document.references_type.inner_text !== false || document.references_type.attribute_text !== false" 
+								:title="document.references_type.inner_text !== false ? 'Referencia por texto:\n' + document.references_type.inner_text.selector.query : 'Referencia por texto:\n' + document.references_type.attribute_text.selector.query + ' (' + document.references_type.attribute_text.attribute + ') '">
+									<i class="fas fa-paragraph black"></i>
+								</span>
+								
+							</td>
+							<!-- ids -->
+							<td class="p-0">
+								<span>
+									{{ document.associated_task.length }}
+								</span>
+
+							</td>
+							<!-- actualizado -->
+							<td>
+								<small>{{ document.update_date_formated }}</small>
+							</td>
+							<!-- numero de tq -->
+							 <td>
+								{{ parseInt(document.number_tq)}}
+							</td>
+							<!-- operaciones -->
+							<td>
+
+								<button class="button-operation blue" title="Exportar restantes" @click="documentExport(document.name, false)" :disabled="status.operation.loading">
+									<i class="fas fa-angle-up"></i>
+								</button>
+
+								<button class="button-operation blue" title="Exportar todas" @click="documentExport(document.name, true)" :disabled="status.operation.loading">
+									<i class="fas fa-angle-double-up"></i>
+								</button>
+
+								<button class="button-operation button-operation-small gray" title="Modificar documento" @click="callEditModal(document.name)">
+									<i class="fas fa-pen"></i>								
+								</button>
+
+								<button class="button-operation button-operation-last text-danger" :disabled="status.operation.loading" @click="documentRemove(document.name)">
+									<i class="fas fa-trash"></i>
+								</button>
+
+							</td>
+
+						</tr>	
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	</script>
+
+	<script type="text/x-template" id="auto-open-task-modal-template">
+		<transition name="fade">
+			<div v-if="status.show" class="modal-overlay" @click="hideModal()" tabindex="0">
+				<div @keydown.esc="hideModal()" @click.stop="" class="modal-component-content auto-open-modal" tabindex="0" :key="forceRender.main">
+					<button @click="hideModal()" @keyup="" class="close" >
+						<i class=" fas fa-times-circle" ></i>
+					</button>
+					<span class="font-weight-bold" style="font-size: 13pt; ">
+						<i class="fas fa-cog"></i>
+						Auto Abrir Tareas
+					</span>
+					<span>
+						<label for="enable-auto-open" class="enable-auto-open-label" :key="forceRender.toggleIcon">
+							<i :class="form.enable ? 'fas fa-toggle-on auto-open-icon' : 'fas fa-toggle-off auto-open-icon'" style="margin-left: 20px;"></i>
+							<input type="checkbox" v-model="form.enable" style="display: none;" id="enable-auto-open" @change="_updateIconLabelClass()">
+						</label>
+						
+					</span>
+					<hr>
+					<div :class="!form.enable ? 'gray-scale' : '' ">
+						<div class="row">
+							<div class="col-md-8">
+								<span class="font-weight-bold w-100" style="font-size: 12pt; ">Ubicación</span>
+								<div>
+									<label for="venezuela-location" class="flag-icon-label" title="Venezuela">
+										<input type="checkbox" id="venezuela-location" v-model="form.locations.venezuela">
+										<img src="img/venezuela-icon.png" alt="" class="flag-icon">
+									</label>
+									<label for="usa-location" class="flag-icon-label" title="Estados Unidos">
+										<input type="checkbox" id="usa-location" v-model="form.locations.usa">
+										<img src="img/usa-icon.png" alt="" class="flag-icon">
+									</label>
+									<label for="brazil-location" class="flag-icon-label" title="Brasil">
+										<input type="checkbox" id="brazil-location" v-model="form.locations.brazil">
+										<img src="img/brazil-icon.png" alt="" class="flag-icon">
+									</label>
+									<label for="filter-location" class="flag-icon-label" title="Filtros">
+										<input type="checkbox" id="filter-location" v-model="form.locations.filter">
+										<img src="img/secret-icon.png" alt="" class="flag-icon-small">
+									</label>
+									<label for="spam-location" class="flag-icon-label" title="Spam">
+										<input type="checkbox" id="spam-location" v-model="form.locations.spam">
+										<img src="img/poop-icon.png" style="height: 27px;" alt="" class="flag-icon-small">
+									</label>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<span class="font-weight-bold w-100" style="font-size: 12pt; ">Estado</span>
+								<div>
+									<label for="new-status" class="status-icon-label" title="Nueva">
+										<input type="checkbox" id="new-status" v-model="form.status.new">
+										<i class="fas fa-bell"></i>
+									</label>
+									<label for="reload-status" class="status-icon-label" title="Recargada">
+										<input type="checkbox" id="reload-status" v-model="form.status.reload">
+										<i class="fas fa-sync-alt"></i>
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="row mt-2">
+							<div class="col-md-8">
+								<span class="font-weight-bold w-100" style="font-size: 12pt; ">Nivel</span>
+								<div>
+									<label for="level-0" class="level-icon-label" title="Nivel 0">
+										<input type="checkbox" id="level-0" v-model="form.level.level0">
+										<img src="img/lvl-0-icon.png" alt="" class="level-icon">
+									</label>
+									<label for="level-1" class="level-icon-label" title="Nivel 1">
+										<input type="checkbox" id="level-1" v-model="form.level.level1">
+										<img src="img/lvl-1-icon.png" alt="" class="level-icon">
+									</label>
+									<label for="level-2" class="level-icon-label" title="Nivel 2">
+										<input type="checkbox" id="level-2" v-model="form.level.level2">
+										<img src="img/lvl-2-icon.png" alt="" class="level-icon">
+									</label>
+									<label for="level-3" class="level-icon-label" title="Nivel 3">
+										<input type="checkbox" id="level-3" v-model="form.level.level3">
+										<img src="img/lvl-3-icon.png" alt="" class="level-icon">
+									</label>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<span class="font-weight-bold w-100" style="font-size: 12pt; ">Pago</span>
+								<div class="input-group mb-3">
+									<div class="input-group-addon">
+									  <span class="input-group-text" id="pay-input" title="Mayor o igual a">≥</span>
+									</div>
+									<input type="number" class="form-control" placeholder="" aria-label="Username" aria-describedby="pay-input" v-model="form.filter.payment">
+									<div class="input-group-addon">
+										<span class="input-group-text" id="pay-input" title="Centavos">¢</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row mt-2">
+							<div class="col-md-8">
+								<span class="font-weight-bold w-100" style="font-size: 12pt; ">Modo de lista</span>
+								<div>
+									<select name="" id="" class="form-control" v-model="form.allowOrDeny.mode">
+										<option value="null">Deshabilitado</option>
+										<option value="allow">Permitir</option>
+										<option value="deny">Denegar</option>
+									</select>
+									
+								</div>
+
+							</div>
+							<div class="col-md-4">
+								<span class="font-weight-bold w-100" style="font-size: 12pt; ">Tareas</span>
+								<div class="input-group mb-3">
+									<div class="input-group-addon">
+									  <span class="input-group-text" id="pay-input" title="Mayor o igual a">≥</span>
+									</div>
+									<input type="number" class="form-control" placeholder="" aria-label="Username" aria-describedby="pay-input" v-model="form.filter.tasks">
+								</div>
+							</div>
+							<div class="col-md-12">
+								<textarea name="" id="" cols="30" rows="10" class="form-control mt-1" placeholder="Separe los nombres con un salto de linea" v-model="form.allowOrDeny.list"></textarea>
+							</div>
+						</div>
+					</div>
+					<hr>
+					<div class="text-right">
+						<button @click="resetConfiguration" :disabled="status.loading" class="btn btn-secondary" title="Restablecer configuración">
+							<i class="fas fa-redo"></i>
+						</button>
+						<button @click="setConfiguration" :disabled="status.loading" class="btn btn-primary">
+							<i class="fas fa-save"></i>
+							&nbsp;&nbsp; {{ status.loading ? 'Guardando' : 'Guardar'}}
+						</button>
+						<br>
+						<div v-if="status.error" class="text-danger text-center">
+							<i class="fas fa-exclamation-circle error"></i>
+							{{ status.error }}
+						</div>
+
+					</div>
+
+
+				</div>
+
+			</div>
+
+		</transition>
+
+	</script>
+
+	<script type="text/x-template" id="edit-modal-template">
+		<transition name="fade">
+
+			<div v-if="show" class="modal-overlay" @click="hideModal()" tabindex="0">
+				<!-- Modal content -->
+				<div @keydown.esc="hideModal()" @click.stop="" class="modal-component-content" tabindex="0">
+					<button @click="hideModal()" @keyup="" class="close" >
+						<i class=" fas fa-times-circle" ></i>
+					</button>
+					<span class="font-weight-bold" style="font-size: 13pt; ">
+						<i class="fas fa-cog"></i>
+						Propiedades
+						<small class="font-weight-normal">({{ documentData.name }})</small>
+					</span>
+					<hr>
+					<div >
+						<div>
+							<span class="font-weight-bold w-100" style="font-size: 12pt; ">Asociar ID con Guía</span>
+							<div style="max-height: 250px; overflow: auto;">
+								<table class="table table-sm table-bordered table-hover mt-2">
+									<thead>
+										<tr>
+											<th style="width: 20%">ID</th>
+											<th>Nombre</th>
+											<th style="width: 25%">Operaciones</th>
+										</tr>
+									</thead>
+									<tbody :key="forceRender">
+										<!-- word-break: break-all -->
+										<tr v-if="documentData.associated_task.length === 0">
+											<td colspan="3">
+												No hay IDs asociadas
+											</td>
+										</tr>
+										<tr v-else v-for="(group) in documentData.associated_task">
+											<td>
+												{{ group.id}}
+											</td>
+											<td style="word-break: break-all">
+												{{ group.name}}
+											</td>
+											<td>
+												<button @click="removeAssociation(group.id)" class="button text-danger" style="font-size: 12pt;">
+													<i class="fas fa-trash"></i>
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<input type="number" v-model="form.associated_task.id" class="form-control form-control-sm text-center" placeholder="ID">
+											</td>
+											<td>
+												<input type="text" v-model="form.associated_task.name" class="form-control form-control-sm text-center" placeholder="Nombre">
+											</td>
+											<td class="text-center">
+												<button class="button green" style="font-size: 12pt;" @click="addAssociation()">
+													<i class="fas fa-plus-circle"></i>
+												</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="mt-3">
+							<div class="row">
+								<div class="col-md-2">
+									<h4 class="font-weight-bold w-100 text-center" style="font-size: 12pt;">Tiempo de envío</h4>
+									<div>
+										<input v-model="documentData.send_time" type="number" class="form-control form-control-sm mt-1 mx-auto text-center" style="width: 60px;" >
+									</div>
+								</div>
+								<div class="col-md-2">
+									<h4 class="font-weight-bold w-100 text-center" style="font-size: 12pt;">TQ vacías</h4>
+									<div>
+										<input v-model="documentData.configuration.registerEmptyTQ" type="checkbox" class="form-control form-control-sm mx-auto" style="cursor: pointer; margin-top: 15px;" >
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div v-if="documentData.contain.box === true && userData.permissions.permission_head === true && null" >
+										<h4 class="font-weight-bold w-100 text-left" style="font-size: 12pt;">
+											<i class="fas fa-expand-alt"></i> Box
+										</h4>
+										<input v-model="documentData.configuration.customBoxZoom.base" type="number" class="form-control form-control-sm" style="width: 30%; display: inline;" placeholder="Base %">
+
+										<input v-model="documentData.configuration.customBoxZoom.x" type="number" class="form-control form-control-sm" style="width: 30%; display: inline;" placeholder="X %">
+	
+										<input v-model="documentData.configuration.customBoxZoom.y" type="number" class="form-control form-control-sm" style="width: 30%; display: inline;"placeholder="Y %">
+									</div>
+									
+
+								</div>
+								<div class="col-md-2">
+									<h4 class="font-weight-bold w-100 text-center" style="font-size: 12pt;">Guía Actual</h4>
+									<div>
+										<input v-model="documentData.active" type="checkbox" class="form-control form-control-sm mx-auto" style="cursor: pointer; margin-top: 15px;">
+									</div>
+								</div>
+							</div>
+						</div>
+						<br>
+						<small >
+							Nota: Estos cambios son locales, no cambiarán los valores registrados en el servidor.
+						</small>
+
+					</div>
+					
+					<hr>
+					<div class="text-right">
+						<button @click="saveChanges" :disabled="status.loading" class="btn btn-primary">
+							<i class="fas fa-save"></i>
+							&nbsp;&nbsp; {{ status.loading ? 'Guardando' : 'Guardar'}}
+						</button>
+						<br>
+						<div v-if="status.error" class="text-danger text-center">
+							<i class="fas fa-exclamation-circle error"></i>
+							{{ status.error }}
+						</div>
+					</div>
+				</div>
+			
+			</div>
+		</transition>
+
+		
+		
+		
+		
+		
+	</script>
+
+	<!-- ============================================ SCRIPTS ============================================ -->
+	<!-- vuejs -->
+	<script type="text/javascript" src="../../framework/vuejs/vue.min.js"></script>
+	<!-- axios -->
+	<script type="text/javascript" src="../../framework/axios/axios.min.js"></script>
+	<!--fontawesome-->
+	<script type="text/javascript" src="../../framework/fontawesome/js/all.min.js"></script>
+	<!-- jquery -->
+	<script type="text/javascript" src="../../framework/jquery-3.4.1.min.js"></script>
+	<!-- bootstrap -->
+	<script type="text/javascript" src="../../framework/bootstrap/js/popper.min.js"></script>
+	<script type="text/javascript" src="../../framework/bootstrap/js/tooltip.js"></script>
+	<script type="text/javascript" src="../../framework/bootstrap/js/bootstrap.min.js"></script>
+	<!-- main -->
+	<script src="./js/7.js"></script>
+	<script src="./js/8.js"></script>
+
+
+</body>
+
+</html>

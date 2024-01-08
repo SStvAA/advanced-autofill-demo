@@ -1,0 +1,95 @@
+.modal-overlay {
+    display: block; /* Hidden by default */
+    position: fixed; /* Stay in place front is invalid - may break your css so removed */  
+    padding-top: 0px; /* Location of the box - don't know what this does?  If it is to move your modal down by 100px, then just change top below to 100px and remove this*/
+    left: 0;
+    right:0; /* Full width (left and right 0) */
+    top: 0;
+    bottom: 0; /* Full height top and bottom 0 */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    z-index: 9999; /* Sit on top - higher than any other z-index in your site*/
+
+}
+
+@media (max-width: 800px) {
+    .modal-component-content.auto-open-modal {
+        width: 60% !important;
+    }
+}
+
+@media (min-width: 801px) AND (max-width: 1300px){
+    .modal-component-content.auto-open-modal {
+        width: 60% !important;
+    }
+}
+
+@media (min-width: 1301px) AND (max-width: 1600px){
+    .modal-component-content.auto-open-modal {
+        width: 40% !important;
+    }
+}
+
+@media (min-width: 1601px){
+    .modal-component-content.auto-open-modal {
+        width: 30% !important;
+    }
+}
+
+
+
+
+/* modal-component- Content/Box */
+.modal-component-content {
+    background-color: #fefefe;
+    margin: 4% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 7px;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .3s
+}
+
+.fade-enter,
+.fade-leave-to
+
+/* .fade-leave-active below version 2.1.8 */
+    {
+    opacity: 0
+}
+
+
+@media (min-width: 795px) {
+    .modal-component-content {
+       width: 50%;
+
+    }
+}
+
+@media (max-width: 794px) {
+    .modal-component-content {
+        width: 65%;
+    }
+}

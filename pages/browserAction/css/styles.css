@@ -1,0 +1,199 @@
+.enable-auto-refresh-label {
+    cursor: pointer;
+}
+
+.fa-toggle-on, .fa-toggle-off {
+    font-size: 20pt; 
+    float: right;
+    cursor: pointer;
+}
+
+.auto-refresh-icon.fa-toggle-on {
+    color: #37a6d9;
+}
+
+.auto-refresh-icon.fa-toggle-off {
+    color: gray;
+}
+
+.button-ar-config {
+    cursor: pointer;
+    font-size: 15px;
+    border: none;
+    width: 39px;
+    height: 25px;
+    border-radius: 20px;
+    background-color: white;
+    color: rgb(139 139 139);
+
+}
+
+.button-ar-config:hover {
+    background-color: rgb(139 139 139);
+    color: white;
+}
+
+@font-face {
+    font-family: Poppins-Regular;
+    src: url('../../../src/fonts/poppins/Poppins-Regular.ttf');
+}
+
+body {
+    font-family: Poppins-Regular, sans-serif;
+    font-size: 11pt;
+    margin: 0;
+    padding: 0;
+}
+
+.form-basic {
+    padding: .5rem .75rem;
+    font-size: .8rem;
+    line-height: 1.25;
+    color: #495057;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 0.25rem;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    outline-color: #9dd7ef;
+}
+
+.button-login {
+    width: 90%;
+    padding: 6px;
+    color: white;
+    background-color: #37a6d9;
+    border: none;
+    border-radius: 5px;
+}
+
+.button-login:hover {
+    cursor: pointer;
+    background-color: #3397c5;
+    outline-color: #9dd7ef;
+
+}
+
+.no-select {
+    user-select: none;
+}
+
+.hover-spin {
+    transition: transform .5s ease-in-out;
+}
+
+.hover-spin:hover {
+    transform: rotate(360deg);
+}
+
+.btn {
+    user-select: none;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    border-radius: 0.25rem;
+    transition: all .15s ease-in-out;
+}
+
+.btn:hover {
+    color: #111;
+    background-color: #e2e6ea;
+    border-color: #dae0e5;
+}
+
+.btn-outline-primary {
+    color: #007bff;
+    background-color: transparent;
+    background-image: none;
+}
+
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-outline-secondary {
+    color: #6c757d;
+    background-color: transparent;
+    background-image: none;
+}
+
+.btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-outline-success {
+    color: #28a745;
+    background-color: transparent;
+    background-image: none;
+}
+
+.btn-outline-success:hover {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+
+
+
+
+
+.header {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid
+}
+
+
+
+.btn-group button {
+    border: 1px solid #e8e8e8;
+    padding: 10px 24px;
+    /* Some padding */
+    cursor: pointer;
+    /* Pointer/hand icon */
+    float: left;
+    /* Float the buttons side by side */
+}
+
+.btn-group button:not(:last-child) {
+    border-right: none;
+    /* Prevent double borders */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+
+
+.form-inline {
+    display: flex;
+}
+
+.input-inline {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-inline input {
+    border: 1px solid #007bff;
+}

@@ -1,0 +1,63 @@
+.button-primary {
+    color: white;
+    background-color: #37a6d9;
+    padding-right: 16px;
+    padding-left: 16px;
+    border-radius: 5px;
+    box-shadow: none;
+    text-shadow: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-color: #37a6d9;
+}
+
+.button-secondary {
+    color: white;
+    background-color: gray;
+    padding-right: 16px;
+    padding-left: 16px;
+    border-radius: 5px;
+    box-shadow: none;
+    text-shadow: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-color: gray;
+}
+
+.button-primary:hover {
+    background-color: #3195c4;
+    border-color: #3195c4;
+}
+
+.button-danger {
+    color: white;
+    background-color: #bd362f;
+    padding-right: 16px;
+    padding-left: 16px;
+    border-radius: 5px;
+    box-shadow: none;
+    text-shadow: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-color: #bd362f;
+}
+
+.button-danger:hover {
+    background-color: #ab322b;
+    border-color: #ab322b;
+}
+
+/* .ss-main, .ss-single-selected {
+    height: 33px !important;
+    
+}
+
+.ss-open {
+    width: 70% !important;
+} */
+
+.custom-select {
+    width: 50% !important;
+    height: 33px !important;
+    display: inline;
+}

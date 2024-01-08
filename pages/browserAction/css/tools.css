@@ -1,0 +1,340 @@
+
+span {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+:root {
+    --color-text: #666;
+    --color-text-light: #888;
+    --color-text-dark: #424242;
+    --color-border: #e8e8e8;
+    --color-primary: #007bff;
+    --color-primary-red: #ef6c00;
+    --color-reset: #f3a902;
+    --color-secondary: #c0dce6;
+    --color-anchor: #00aaf0
+}
+
+html::-webkit-scrollbar {
+    width: 2px
+}
+
+html::-webkit-scrollbar-track {
+    background-color: #f4f4f4
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: #b5b0b0;
+    outline: none;
+    border-radius: 4px
+}
+
+.custom-input-number {
+    --color-input: var(--color-primary);
+    --input-size: 20px;
+    --color-disabled: rgba(153, 153, 153, 0.4);
+    --checkbox-radius: 5px;
+    display: inline-block;
+    width: 100%;
+    min-width: 15px;
+    min-width: var(--input-size, 15px);
+    max-width: 15px;
+    max-width: var(--input-size, 15px);
+    height: 15px;
+    height: var(--input-size, 15px);
+    position: relative;
+    cursor: pointer
+}
+
+.custom-input {
+    --color-input: var(--color-primary);
+    --input-size: 20px;
+    --color-disabled: rgba(153, 153, 153, 0.4);
+    --checkbox-radius: 5px;
+    display: inline-block;
+    width: 100%;
+    min-width: 15px;
+    min-width: var(--input-size, 15px);
+    max-width: 15px;
+    max-width: var(--input-size, 15px);
+    height: 15px;
+    height: var(--input-size, 15px);
+    position: relative;
+    cursor: pointer
+}
+
+.custom-input input {
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer
+}
+
+.custom-input input~span {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: 1px solid #666;
+    border: 1px solid var(--color-input, #666)
+}
+
+.custom-input input~span::after {
+    content: "";
+    opacity: 0;
+    -webkit-transition: opacity .25s ease-in-out;
+    transition: opacity .25s ease-in-out;
+    position: absolute
+}
+
+.custom-input input:disabled~span {
+    border-color: #fff !important;
+    border-color: var(--color-disabled, #fff) !important
+}
+
+.custom-input input:disabled~span::after {
+    border-color: #fff !important;
+    border-color: var(--color-disabled, #fff) !important
+}
+
+.custom-input input:checked~span::after {
+    opacity: 1
+}
+
+.custom-input input[type=checkbox]~span {
+    width: 20px;
+    height: 20px;
+    top: 2px;
+    border-radius: 4px;
+    border-radius: var(--checkbox-radius, 4px)
+}
+
+.custom-input input[type=checkbox]~span::after {
+    width: 3.3px;
+    height: 8.3px;
+    border-right: 2px solid #666;
+    border-right: 2px solid var(--color-input, #666);
+    border-bottom: 2px solid #666;
+    border-bottom: 2px solid var(--color-input, #666);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: 3px;
+    left: 6px
+}
+
+.input-inline > select {
+    margin-top: 3px;
+    text-align: center;
+    color: #37a6d9;
+    width: 92px;
+    height: 24px;
+    border-radius: 4px;
+    border-color: #37a6d9;
+    cursor: pointer;
+    outline: none;
+}
+
+.custom-input input[type=radio]~span {
+    border-radius: 50%
+}
+
+.custom-input input[type=radio]~span::after {
+    width: 12px;
+    height: 12px;
+    background-color: #666;
+    background-color: var(--color-input, #666);
+    border-radius: 50%;
+    top: 3px;
+    left: 3px
+}
+
+.custom-input input[type=radio]:disabled~span::after {
+    background-color: rgba(153, 153, 153, 0.78039);
+    background-color: var(--color-disabled, rgba(153, 153, 153, 0.78039))
+}
+
+.custom-input.small {
+    --input-size: 16px
+}
+
+.custom-input.small input[type=radio]~span::after {
+    width: 10px;
+    height: 10px;
+    top: 2px;
+    left: 2px
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 160px;
+    height: 4px;
+    background: rgba(146, 146, 146, 0.45882);
+    outline: none;
+    border: none;
+    -webkit-transition: opacity .2s;
+    transition: opacity .2s;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 0;
+    margin-top: 16px;
+    margin-right: 32px
+}
+
+input[type=range]:focus {
+    outline: none;
+    border: none
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0;
+    border: 0;
+    height: 4px
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    outline: none
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border: 2px solid #8a8a8a;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -5px
+}
+
+input[type=range]::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border: 2px solid #8a8a8a;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -5px
+}
+
+textarea,
+input {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 6px 10px;
+    border: 1px solid #05c896;
+    border: 1px solid var(--color-primary);
+    border-radius: 5px
+}
+
+textarea:focus,
+input:focus {
+    border-color: #05c896;
+    border-color: var(--color-primary)
+}
+
+textarea:disabled,
+input:disabled {
+    border-color: rgba(51, 51, 51, 0.58039);
+    background-color: #fafafa
+}
+
+textarea::-webkit-input-placeholder,
+input::-webkit-input-placeholder {
+    opacity: .7
+}
+
+textarea::-moz-placeholder,
+input::-moz-placeholder {
+    opacity: .7
+}
+
+textarea:-ms-input-placeholder,
+input:-ms-input-placeholder {
+    opacity: .7
+}
+
+textarea::-ms-input-placeholder,
+input::-ms-input-placeholder {
+    opacity: .7
+}
+
+textarea::placeholder,
+input::placeholder {
+    opacity: .7
+}
+
+textarea {
+    resize: vertical;
+    min-height: 140px
+}
+
+input[type=number] {
+    width: 35px;
+    line-height: 1;
+    padding: 5px 10px
+}
+
+input[type=url],
+input[type=text] {
+    width: 100%
+}
+
+input[type=text]#pm-7 {
+    width: 300px;
+    margin-top: -6px
+}
+
+input#date,
+input#time {
+    width: 167px
+}
+
+input#pm-10 {
+    margin-top: -3px
+}
+
+.placeholder {
+    color: #999
+}
+
+.email-input {
+    position: relative
+}
+
+.email-input input[type=email] {
+    padding-left: 32px
+}
+
+.email-input .icon {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    opacity: .6
+}
+
+button,
+input,
+textarea {
+    outline: none
+}
